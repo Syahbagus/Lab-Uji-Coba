@@ -24,8 +24,7 @@ for i in range(1, 8):  # 7 kali scroll agar bisa sampai halaman paling bawah
     time.sleep(1)
 time.sleep(5)
 
-driver.save_screenshot(
-    'D:\Coba code\Coba python\Web Scrapping\Shopee\home.png')
+driver.save_screenshot('home.png')
 content = driver.page_source
 driver.quit()
 
@@ -63,7 +62,6 @@ for area in data.find_all('div', class_='col-xs-2-4 shopee-search-item-result__i
 df = pd.DataFrame({'Nama': list_nama, 'Gambar': list_gambar, 'Harga': list_harga,
                   'Terjual': list_terjual, 'Kota': list_kota, 'Link': list_link})
 df.head()
-writer = pd.ExcelWriter(
-    'D:\Coba code\Coba python\Web Scrapping\Shopee\Poco.xlsx')
+writer = pd.ExcelWriter('Poco.xlsx')
 df.to_excel(writer, 'Sheet1', index=False)
 writer.save()
